@@ -1,0 +1,13 @@
+<div class="letters" class="list-inline">
+  <% @letters_score.each do |letter| %>
+    <div class="letter"> <%= letter.upcase %> </div>
+  <% end %>
+</div>
+
+<div class="question">What is the longest word you can find?</div>
+
+<form action="/score" method="post">
+  <input type="text" name="user_answer" value="<%= params[:answer] %>">
+  <input type="submit" value="play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
